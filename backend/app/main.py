@@ -1,8 +1,7 @@
 from fastapi import FastAPI
+from app.api import concerts
 
-app = FastAPI(title="ProjSpotify API")
+app = FastAPI()
 
+app.include_router(concerts.router)
 
-@app.get("/health")
-def health():
-    return {"status": "ok"}
